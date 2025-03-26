@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProfileForm.Designer.cs">
+      <DependentUpon>AdminProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharacterSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterSheet.Designer.cs">
+      <DependentUpon>CharacterSheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +84,24 @@
     <Compile Include="SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManageProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManageProfile.Designer.cs">
+      <DependentUpon>UserManageProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserProfileForm.Designer.cs">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminProfileForm.resx">
+      <DependentUpon>AdminProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharacterSheet.resx">
+      <DependentUpon>CharacterSheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManageProfile.resx">
+      <DependentUpon>UserManageProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfileForm.resx">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

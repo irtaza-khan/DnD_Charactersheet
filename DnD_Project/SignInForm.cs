@@ -50,11 +50,39 @@ namespace DnD_Project
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            MainForm MainForm = new MainForm(); // Open Sign-In Form
-            MainForm.Show();
-            //P("Going to sign in");
-            //MessageBox.Show("Going to sign in");
-            this.Hide(); // Close Sign-Up Form
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            string role = cmbRole.SelectedItem?.ToString(); // Get selected role
+
+            if (string.IsNullOrEmpty(role))
+            {
+                MessageBox.Show("Please select a role before signing in.", "Role Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate credentials (Replace with actual database verification)
+            //bool isValidUser = AuthenticateUser(username, password, role);
+            bool isValidUser = true;
+            if (isValidUser)
+            {
+                this.Hide(); // Hide the SignInForm
+
+                if (role == "Admin")
+                {
+                    AdminProfileForm adminForm = new AdminProfileForm();
+                    adminForm.Show();
+                }
+                else if (role == "User")
+                {
+                    UserProfileForm userForm = new UserProfileForm();
+                    userForm.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
