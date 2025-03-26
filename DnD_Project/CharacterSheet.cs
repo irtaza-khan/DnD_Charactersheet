@@ -74,5 +74,10 @@ namespace DnD_Project
             this.Hide(); 
             previousForm.Show();
         }
+
+        private void CharacterSheet_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

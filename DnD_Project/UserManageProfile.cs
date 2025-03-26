@@ -24,7 +24,7 @@ namespace DnD_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserManageProfile sheet = new UserManageProfile();
+            CharacterSheet sheet = new CharacterSheet(this);
             sheet.Show();
             this.Hide(); 
         }
@@ -36,6 +36,11 @@ namespace DnD_Project
             //P("Going to sign in");
             //MessageBox.Show("Going to sign in");
             this.Hide(); // Close Sign-Up Form
+        }
+
+        private void UserManageProfile_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

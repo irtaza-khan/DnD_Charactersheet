@@ -53,7 +53,8 @@ namespace DnD_Project
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 20F);
-            this.label2.Location = new System.Drawing.Point(175, 29);
+            this.label2.Location = new System.Drawing.Point(233, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 33);
             this.label2.TabIndex = 1;
@@ -76,9 +77,11 @@ namespace DnD_Project
             this.groupBox1.Controls.Add(this.cmbRole);
             this.groupBox1.Controls.Add(this.btnSignUp);
             this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(280, 67);
+            this.groupBox1.Location = new System.Drawing.Point(373, 82);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(460, 533);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(613, 656);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -87,9 +90,10 @@ namespace DnD_Project
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(177, 199);
+            this.label7.Location = new System.Drawing.Point(236, 245);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 13);
+            this.label7.Size = new System.Drawing.Size(149, 16);
             this.label7.TabIndex = 11;
             this.label7.Text = "Username already exist";
             // 
@@ -97,7 +101,8 @@ namespace DnD_Project
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(110, 425);
+            this.label6.Location = new System.Drawing.Point(147, 523);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(168, 16);
             this.label6.TabIndex = 9;
@@ -107,7 +112,8 @@ namespace DnD_Project
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 103);
+            this.label1.Location = new System.Drawing.Point(53, 127);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 18);
             this.label1.TabIndex = 0;
@@ -116,16 +122,18 @@ namespace DnD_Project
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(180, 99);
+            this.txtName.Location = new System.Drawing.Point(240, 122);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 24);
+            this.txtName.Size = new System.Drawing.Size(265, 24);
             this.txtName.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(40, 170);
+            this.label3.Location = new System.Drawing.Point(53, 209);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 18);
             this.label3.TabIndex = 2;
@@ -134,9 +142,10 @@ namespace DnD_Project
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(180, 165);
+            this.txtEmail.Location = new System.Drawing.Point(240, 203);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 24);
+            this.txtEmail.Size = new System.Drawing.Size(265, 24);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -144,7 +153,8 @@ namespace DnD_Project
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 246);
+            this.label4.Location = new System.Drawing.Point(52, 303);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 18);
             this.label4.TabIndex = 4;
@@ -153,9 +163,10 @@ namespace DnD_Project
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(180, 242);
+            this.txtPassword.Location = new System.Drawing.Point(240, 298);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 24);
+            this.txtPassword.Size = new System.Drawing.Size(265, 24);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -163,7 +174,8 @@ namespace DnD_Project
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 308);
+            this.label5.Location = new System.Drawing.Point(53, 379);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 18);
             this.label5.TabIndex = 6;
@@ -176,18 +188,20 @@ namespace DnD_Project
             this.cmbRole.Items.AddRange(new object[] {
             "Admin",
             "User"});
-            this.cmbRole.Location = new System.Drawing.Point(180, 305);
+            this.cmbRole.Location = new System.Drawing.Point(240, 375);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(200, 25);
+            this.cmbRole.Size = new System.Drawing.Size(265, 25);
             this.cmbRole.TabIndex = 7;
             // 
             // btnSignUp
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.Tan;
             this.btnSignUp.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSignUp.Location = new System.Drawing.Point(180, 365);
+            this.btnSignUp.Location = new System.Drawing.Point(240, 449);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(100, 40);
+            this.btnSignUp.Size = new System.Drawing.Size(133, 49);
             this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
@@ -198,7 +212,8 @@ namespace DnD_Project
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(275, 425);
+            this.linkLabel1.Location = new System.Drawing.Point(367, 523);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(47, 16);
             this.linkLabel1.TabIndex = 10;
@@ -208,14 +223,15 @@ namespace DnD_Project
             // 
             // SignUpForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1029, 729);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1367, 835);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";
