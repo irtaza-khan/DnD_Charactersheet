@@ -24,7 +24,7 @@ namespace DnD_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CharacterSheet sheet = new CharacterSheet(); 
+            UserManageProfile sheet = new UserManageProfile();
             sheet.Show();
             this.Hide(); 
         }
