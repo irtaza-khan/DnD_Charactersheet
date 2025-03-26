@@ -200,7 +200,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox1.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(25, 57);
@@ -231,7 +231,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox2.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(376, 58);
@@ -243,9 +243,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox3.BackColor = System.Drawing.Color.SandyBrown;
+            this.groupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox3.Controls.Add(this.comboBox2);
             this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.Location = new System.Drawing.Point(515, 57);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(122, 81);
@@ -266,8 +268,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Showcard Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(353, 9);
+            this.label4.Location = new System.Drawing.Point(379, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(334, 36);
             this.label4.TabIndex = 2;
@@ -275,7 +278,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox4.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox4.Controls.Add(this.textBox3);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(27, 167);
@@ -307,7 +310,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox5.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox5.Controls.Add(this.textBox4);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Location = new System.Drawing.Point(27, 249);
@@ -339,7 +342,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox6.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox6.Controls.Add(this.textBox5);
             this.groupBox6.Controls.Add(this.label7);
             this.groupBox6.Location = new System.Drawing.Point(27, 331);
@@ -370,7 +373,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox7.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox7.Controls.Add(this.textBox6);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Location = new System.Drawing.Point(27, 413);
@@ -402,7 +405,7 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox8.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox8.Controls.Add(this.textBox7);
             this.groupBox8.Controls.Add(this.label9);
             this.groupBox8.Location = new System.Drawing.Point(27, 495);
@@ -433,7 +436,7 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox9.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox9.Controls.Add(this.textBox8);
             this.groupBox9.Controls.Add(this.label10);
             this.groupBox9.Location = new System.Drawing.Point(27, 577);
@@ -464,7 +467,7 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox10.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox10.Controls.Add(this.textBox9);
             this.groupBox10.Controls.Add(this.label11);
             this.groupBox10.Location = new System.Drawing.Point(163, 149);
@@ -495,7 +498,7 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox11.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox11.Controls.Add(this.textBox15);
             this.groupBox11.Controls.Add(this.textBox14);
             this.groupBox11.Controls.Add(this.textBox13);
@@ -644,7 +647,7 @@
             // 
             // groupBox12
             // 
-            this.groupBox12.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox12.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox12.Controls.Add(this.textBox32);
             this.groupBox12.Controls.Add(this.textBox31);
             this.groupBox12.Controls.Add(this.textBox30);
@@ -1047,7 +1050,7 @@
             // 
             // groupBox13
             // 
-            this.groupBox13.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox13.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox13.Controls.Add(this.textBox33);
             this.groupBox13.Controls.Add(this.label12);
             this.groupBox13.Location = new System.Drawing.Point(376, 144);
@@ -1076,7 +1079,7 @@
             // 
             // groupBox14
             // 
-            this.groupBox14.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox14.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox14.Controls.Add(this.textBox34);
             this.groupBox14.Controls.Add(this.label13);
             this.groupBox14.Location = new System.Drawing.Point(515, 145);
@@ -1105,7 +1108,7 @@
             // 
             // groupBox15
             // 
-            this.groupBox15.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox15.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox15.Controls.Add(this.textBox36);
             this.groupBox15.Controls.Add(this.label16);
             this.groupBox15.Location = new System.Drawing.Point(376, 213);
@@ -1116,7 +1119,7 @@
             // 
             // groupBox18
             // 
-            this.groupBox18.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox18.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox18.Controls.Add(this.numericUpDown2);
             this.groupBox18.Controls.Add(this.label18);
             this.groupBox18.Controls.Add(this.textBox38);
@@ -1181,7 +1184,7 @@
             // 
             // groupBox19
             // 
-            this.groupBox19.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox19.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox19.Controls.Add(this.label23);
             this.groupBox19.Controls.Add(this.comboBox1);
             this.groupBox19.Location = new System.Drawing.Point(618, 300);
@@ -1238,7 +1241,7 @@
             // 
             // groupBox20
             // 
-            this.groupBox20.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox20.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox20.Controls.Add(this.textBox48);
             this.groupBox20.Controls.Add(this.textBox45);
             this.groupBox20.Controls.Add(this.textBox46);
@@ -1375,7 +1378,7 @@
             // 
             // groupBox21
             // 
-            this.groupBox21.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox21.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox21.Controls.Add(this.textBox49);
             this.groupBox21.Location = new System.Drawing.Point(376, 602);
             this.groupBox21.Name = "groupBox21";
@@ -1395,7 +1398,7 @@
             // 
             // groupBox16
             // 
-            this.groupBox16.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox16.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox16.Controls.Add(this.textBox35);
             this.groupBox16.Controls.Add(this.label15);
             this.groupBox16.Location = new System.Drawing.Point(515, 212);
@@ -1406,7 +1409,7 @@
             // 
             // groupBox17
             // 
-            this.groupBox17.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox17.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox17.Controls.Add(this.label14);
             this.groupBox17.Controls.Add(this.textBox37);
             this.groupBox17.Location = new System.Drawing.Point(615, 213);
@@ -1435,7 +1438,7 @@
             // 
             // groupBox22
             // 
-            this.groupBox22.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox22.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox22.Controls.Add(this.textBox50);
             this.groupBox22.Location = new System.Drawing.Point(715, 532);
             this.groupBox22.Name = "groupBox22";
@@ -1455,7 +1458,7 @@
             // 
             // groupBox23
             // 
-            this.groupBox23.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox23.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox23.Controls.Add(this.textBox51);
             this.groupBox23.Location = new System.Drawing.Point(715, 260);
             this.groupBox23.Name = "groupBox23";
@@ -1475,7 +1478,7 @@
             // 
             // groupBox24
             // 
-            this.groupBox24.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox24.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox24.Controls.Add(this.textBox52);
             this.groupBox24.Location = new System.Drawing.Point(715, 58);
             this.groupBox24.Name = "groupBox24";
@@ -1543,7 +1546,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Peru;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(1029, 729);
             this.Controls.Add(this.groupBox24);
             this.Controls.Add(this.groupBox23);

@@ -155,5 +155,10 @@ namespace DnD_Project
         {
 
         }
+
+        private void label4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
