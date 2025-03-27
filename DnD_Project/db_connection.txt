@@ -1,0 +1,1 @@
+﻿Server=IRTAZA-KHAN\SQLEXPRESS;Database=DnD_CharacterSheet;Integrated Security=True;

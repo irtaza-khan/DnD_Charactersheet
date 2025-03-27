@@ -56,7 +56,7 @@ namespace DnD_Project
             this.label2.Location = new System.Drawing.Point(233, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 33);
+            this.label2.Size = new System.Drawing.Size(149, 43);
             this.label2.TabIndex = 1;
             this.label2.Text = "Sign Up";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,9 +78,9 @@ namespace DnD_Project
             this.groupBox1.Controls.Add(this.btnSignUp);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Location = new System.Drawing.Point(373, 82);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(613, 656);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -96,6 +96,7 @@ namespace DnD_Project
             this.label7.Size = new System.Drawing.Size(149, 16);
             this.label7.TabIndex = 11;
             this.label7.Text = "Username already exist";
+            this.label7.Visible = false;
             // 
             // label6
             // 
@@ -104,7 +105,7 @@ namespace DnD_Project
             this.label6.Location = new System.Drawing.Point(147, 523);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(168, 16);
+            this.label6.Size = new System.Drawing.Size(211, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Already have an account ? ";
             // 
@@ -115,7 +116,7 @@ namespace DnD_Project
             this.label1.Location = new System.Drawing.Point(53, 127);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
+            this.label1.Size = new System.Drawing.Size(66, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
@@ -123,9 +124,9 @@ namespace DnD_Project
             // 
             this.txtName.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(240, 122);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(265, 24);
+            this.txtName.Size = new System.Drawing.Size(265, 28);
             this.txtName.TabIndex = 1;
             // 
             // label3
@@ -135,7 +136,7 @@ namespace DnD_Project
             this.label3.Location = new System.Drawing.Point(53, 209);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 18);
+            this.label3.Size = new System.Drawing.Size(113, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Username:";
             // 
@@ -143,9 +144,9 @@ namespace DnD_Project
             // 
             this.txtEmail.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(240, 203);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(265, 24);
+            this.txtEmail.Size = new System.Drawing.Size(265, 28);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -156,7 +157,7 @@ namespace DnD_Project
             this.label4.Location = new System.Drawing.Point(52, 303);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 18);
+            this.label4.Size = new System.Drawing.Size(122, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Password:";
             // 
@@ -164,9 +165,9 @@ namespace DnD_Project
             // 
             this.txtPassword.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(240, 298);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(265, 24);
+            this.txtPassword.Size = new System.Drawing.Size(265, 28);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -177,7 +178,7 @@ namespace DnD_Project
             this.label5.Location = new System.Drawing.Point(53, 379);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 18);
+            this.label5.Size = new System.Drawing.Size(64, 23);
             this.label5.TabIndex = 6;
             this.label5.Text = "Role:";
             // 
@@ -189,9 +190,9 @@ namespace DnD_Project
             "Admin",
             "User"});
             this.cmbRole.Location = new System.Drawing.Point(240, 375);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(265, 25);
+            this.cmbRole.Size = new System.Drawing.Size(265, 29);
             this.cmbRole.TabIndex = 7;
             // 
             // btnSignUp
@@ -199,7 +200,7 @@ namespace DnD_Project
             this.btnSignUp.BackColor = System.Drawing.Color.Tan;
             this.btnSignUp.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnSignUp.Location = new System.Drawing.Point(240, 449);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(133, 49);
             this.btnSignUp.TabIndex = 8;
@@ -215,7 +216,7 @@ namespace DnD_Project
             this.linkLabel1.Location = new System.Drawing.Point(367, 523);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(47, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(60, 20);
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Sign In";
@@ -231,7 +232,7 @@ namespace DnD_Project
             this.ClientSize = new System.Drawing.Size(1367, 835);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";
