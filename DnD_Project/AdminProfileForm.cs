@@ -126,5 +126,12 @@ namespace DnD_Project
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CharacterListForm detailsForm = new CharacterListForm(this);
+            detailsForm.Show();
+            this.Hide();
+        }
     }
 }

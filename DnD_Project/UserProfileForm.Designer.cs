@@ -43,6 +43,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.btnSignUp = new System.Windows.Forms.Button();
+            this.viewCharacterButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox1.Controls.Add(this.viewCharacterButton);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -75,9 +77,9 @@
             this.groupBox1.Controls.Add(this.cmbRole);
             this.groupBox1.Controls.Add(this.btnSignUp);
             this.groupBox1.Location = new System.Drawing.Point(93, 79);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1185, 737);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -86,8 +88,8 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Tan;
             this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(613, 577);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(613, 547);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(329, 49);
             this.button2.TabIndex = 12;
@@ -122,7 +124,7 @@
             this.button1.BackColor = System.Drawing.Color.Tan;
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(77, 425);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(284, 60);
             this.button1.TabIndex = 9;
@@ -145,7 +147,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(451, 119);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(304, 36);
@@ -166,7 +168,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(451, 210);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(304, 36);
@@ -188,7 +190,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(451, 299);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.ReadOnly = true;
             this.txtPassword.Size = new System.Drawing.Size(304, 36);
@@ -202,24 +204,38 @@
             "Admin",
             "User"});
             this.cmbRole.Location = new System.Drawing.Point(552, 502);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbRole.Size = new System.Drawing.Size(433, 30);
             this.cmbRole.TabIndex = 7;
+            this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
             // 
             // btnSignUp
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.Tan;
             this.btnSignUp.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnSignUp.Location = new System.Drawing.Point(43, 657);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(133, 49);
             this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "Log Out";
             this.btnSignUp.UseVisualStyleBackColor = false;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            // 
+            // viewCharacterButton
+            // 
+            this.viewCharacterButton.BackColor = System.Drawing.Color.Tan;
+            this.viewCharacterButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewCharacterButton.Location = new System.Drawing.Point(614, 606);
+            this.viewCharacterButton.Margin = new System.Windows.Forms.Padding(4);
+            this.viewCharacterButton.Name = "viewCharacterButton";
+            this.viewCharacterButton.Size = new System.Drawing.Size(329, 49);
+            this.viewCharacterButton.TabIndex = 13;
+            this.viewCharacterButton.Text = "View All Characters";
+            this.viewCharacterButton.UseVisualStyleBackColor = false;
+            this.viewCharacterButton.Click += new System.EventHandler(this.viewCharacterButton_Click);
             // 
             // UserProfileForm
             // 
@@ -228,7 +244,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1372, 897);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserProfileForm";
@@ -254,5 +270,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button viewCharacterButton;
     }
 }

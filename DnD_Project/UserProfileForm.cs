@@ -15,8 +15,8 @@ namespace DnD_Project
     public partial class UserProfileForm : Form
     {
         private string currentUsername;
-        private string connectionString = File.ReadAllText(@"D:\Study Material\Fiverr\DnD_Charactersheet\DnD_Project\db_connection.txt").Trim();
-
+        private string connectionString = File.ReadAllText(@"db_connection.txt").Trim();
+        private int userid;
         public UserProfileForm()
         {
             InitializeComponent();
@@ -28,6 +28,22 @@ namespace DnD_Project
             LoadUserData();
         }
 
+        private int GetUserIDByUsername(string username)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT UserID FROM Users WHERE Username = @Username";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    object result = cmd.ExecuteScalar();
+                    return (result != null) ? Convert.ToInt32(result) : -1; // Return UserID or -1 if not found
+                }
+            }
+        }
+
         private void LoadUserData()
         {
             try
@@ -37,10 +53,11 @@ namespace DnD_Project
                     conn.Open();
 
                     // Fetch User Data
-                    string userQuery = "SELECT Name, Username FROM Users WHERE Username = @username";
+                    string userQuery = "SELECT Name, Username, UserID FROM Users WHERE Username = @username";
                     using (SqlCommand userCmd = new SqlCommand(userQuery, conn))
                     {
                         userCmd.Parameters.AddWithValue("@username", currentUsername);
+
                         using (SqlDataReader reader = userCmd.ExecuteReader())
                         {
                             if (reader.Read())
@@ -60,34 +77,43 @@ namespace DnD_Project
                         charCmd.Parameters.AddWithValue("@username", currentUsername);
                         charCount = (int)charCmd.ExecuteScalar();
                     }
-
-                    // Display number of characters in txtPassword (as asterisks)
-                    txtPassword.Text = new string('*', charCount);
-
-                    // Fetch Character Names
                     cmbRole.Items.Clear();
-                    string fetchCharNames = "SELECT CharacterName FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
 
-                    using (SqlCommand nameCmd = new SqlCommand(fetchCharNames, conn))
+                    string fetchCharData = "SELECT Character_ID, Character_Name FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
+
+                    using (SqlCommand nameCmd = new SqlCommand(fetchCharData, conn))
                     {
                         nameCmd.Parameters.AddWithValue("@username", currentUsername);
                         using (SqlDataReader nameReader = nameCmd.ExecuteReader())
                         {
+                            cmbRole.Items.Clear(); // Clear previous items if any
+
                             while (nameReader.Read())
                             {
-                                cmbRole.Items.Add(nameReader["CharacterName"].ToString());
+                                int characterId = nameReader.GetInt32(0); // Fetch Character_ID
+                                string characterName = nameReader.GetString(1); // Fetch Character_Name
+
+                                cmbRole.Items.Add(new KeyValuePair<int, string>(characterId, characterName));
                             }
                         }
                     }
 
+                    // Set display & value members
+                    cmbRole.DisplayMember = "Value"; // Show Character_Name in ComboBox
+                    cmbRole.ValueMember = "Key"; // Use Character_ID as the actual value
+
                     // If no characters found, set "None"
                     if (cmbRole.Items.Count == 0)
                     {
+                        cmbRole.Items.Add(new KeyValuePair<int, string>(0, "None"));
                         txtPassword.Text = "0";
-                        cmbRole.Items.Add("None");
+                    }
+                    else
+                    {
+                        txtPassword.Text = cmbRole.Items.Count.ToString(); // Store character count
                     }
 
-                    cmbRole.SelectedIndex = 0; // Select first item
+
                 }
             }
             catch (Exception ex)
@@ -103,43 +129,52 @@ namespace DnD_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CharacterSheet charactersheet = new CharacterSheet(); // Open Sign-In Form
+            CharacterSheet charactersheet = new CharacterSheet(); 
             charactersheet.Show();
-            //P("Going to sign in");
-            //MessageBox.Show("Going to sign in");
-            this.Hide(); // Close Sign-Up Form
+            this.Hide(); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CharacterSheet charactersheet = new CharacterSheet(); // Open Sign-In Form
+            CharacterSheet charactersheet = new CharacterSheet(); 
             charactersheet.Show();
-            //P("Going to sign in");
-            //MessageBox.Show("Going to sign in");
-            this.Hide(); // Close Sign-Up Form
+            this.Hide(); 
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            SignInForm signin = new SignInForm(); // Open Sign-In Form
+            SignInForm signin = new SignInForm();
             signin.Show();
-            //P("Going to sign in");
-            //MessageBox.Show("Going to sign in");
-            this.Hide(); // Close Sign-Up Form
+            this.Hide(); 
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CharacterSheet sheet = new CharacterSheet(this);
+            this.userid = GetUserIDByUsername(this.currentUsername);
+            CharacterSheet sheet = new CharacterSheet(this, userid);
             sheet.Show();
             this.Hide();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            CharacterSheet sheet = new CharacterSheet(this);
+            this.userid = GetUserIDByUsername(this.currentUsername);
+            CharacterSheet sheet = new CharacterSheet(this, userid);
             sheet.Show();
             this.Hide(); 
+        }
+
+        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewCharacterButton_Click(object sender, EventArgs e)
+        {
+            
+            CharacterListForm detailsForm = new CharacterListForm(this);
+            detailsForm.Show();
+            this.Hide();
         }
     }
 }

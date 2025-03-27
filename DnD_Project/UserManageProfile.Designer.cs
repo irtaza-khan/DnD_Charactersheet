@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManageProfile));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbChar = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtChar = new System.Windows.Forms.TextBox();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.goBackButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,19 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // goBackButton
+            // 
+            this.goBackButton.BackColor = System.Drawing.Color.Tan;
+            this.goBackButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.goBackButton.Location = new System.Drawing.Point(43, 38);
+            this.goBackButton.Margin = new System.Windows.Forms.Padding(4);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(133, 49);
+            this.goBackButton.TabIndex = 13;
+            this.goBackButton.Text = "Go Back";
+            this.goBackButton.UseVisualStyleBackColor = false;
+            this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Tan;
@@ -96,6 +109,7 @@
             this.cmbChar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbChar.Size = new System.Drawing.Size(411, 29);
             this.cmbChar.TabIndex = 11;
+            this.cmbChar.SelectedIndexChanged += new System.EventHandler(this.cmbChar_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -208,19 +222,6 @@
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // goBackButton
-            // 
-            this.goBackButton.BackColor = System.Drawing.Color.Tan;
-            this.goBackButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.goBackButton.Location = new System.Drawing.Point(43, 38);
-            this.goBackButton.Margin = new System.Windows.Forms.Padding(4);
-            this.goBackButton.Name = "goBackButton";
-            this.goBackButton.Size = new System.Drawing.Size(133, 49);
-            this.goBackButton.TabIndex = 13;
-            this.goBackButton.Text = "Go Back";
-            this.goBackButton.UseVisualStyleBackColor = false;
-            this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
             // 
             // UserManageProfile
             // 

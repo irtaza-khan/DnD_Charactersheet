@@ -52,6 +52,12 @@
     <Compile Include="AdminProfileForm.Designer.cs">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CharacterListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterListForm.Designer.cs">
+      <DependentUpon>CharacterListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CharacterSheet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="AdminProfileForm.resx">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharacterListForm.resx">
+      <DependentUpon>CharacterListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CharacterSheet.resx">
       <DependentUpon>CharacterSheet.cs</DependentUpon>

@@ -31,6 +31,25 @@ namespace DnD_Project
             this.adminUsername = adminUsername;
         }
 
+        private int GetUserIDByUsername(string username)
+        {
+            string dbFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "db_connection.txt");
+            string connectionString = File.ReadAllText(dbFilePath).Trim();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT UserID FROM Users WHERE Username = @Username";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    object result = cmd.ExecuteScalar();
+                    return (result != null) ? Convert.ToInt32(result) : -1; // Return UserID or -1 if not found
+                }
+            }
+        }
+
         private void LoadUserData()
         {
             try
@@ -69,10 +88,10 @@ namespace DnD_Project
 
                     if (characterCount > 0)
                     {
-                        string getCharactersQuery = "SELECT COUNT(*) FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
+                        //string getCharactersQuery = "SELECT COUNT(*) FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
 
                         // Fetch Character Names
-                        //string getCharactersQuery = "SELECT CharacterName FROM Characters WHERE OwnerUsername = @username";
+                        string getCharactersQuery = "SELECT Character_Name FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
                         using (SqlCommand getCharCmd = new SqlCommand(getCharactersQuery, conn))
                         {
                             getCharCmd.Parameters.AddWithValue("@username", selectedUsername);
@@ -80,7 +99,7 @@ namespace DnD_Project
                             {
                                 while (charReader.Read())
                                 {
-                                    cmbChar.Items.Add(charReader["CharacterName"].ToString());
+                                    cmbChar.Items.Add(charReader["Character_Name"].ToString());
                                 }
                             }
                         }
@@ -106,7 +125,7 @@ namespace DnD_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CharacterSheet sheet = new CharacterSheet(this);
+            CharacterSheet sheet = new CharacterSheet(this, GetUserIDByUsername(this.selectedUsername));
             sheet.Show();
             this.Hide(); 
         }
@@ -133,6 +152,11 @@ namespace DnD_Project
             AdminProfileForm adminprofile = new AdminProfileForm(adminUsername);
             adminprofile.Show();
             this.Hide();
+        }
+
+        private void cmbChar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

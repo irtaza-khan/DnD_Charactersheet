@@ -1089,6 +1089,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(87, 26);
             this.textBox3.TabIndex = 0;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label5
@@ -1695,6 +1696,7 @@
             this.addCharacter.TabIndex = 45;
             this.addCharacter.Text = "Add / Edit Character";
             this.addCharacter.UseVisualStyleBackColor = false;
+            this.addCharacter.Click += new System.EventHandler(this.addCharacter_Click);
             // 
             // goback
             // 
