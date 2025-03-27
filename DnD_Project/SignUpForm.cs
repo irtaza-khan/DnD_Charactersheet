@@ -94,7 +94,7 @@ namespace DnD_Project
             string role = cmbRole.SelectedItem.ToString();
 
             // Read connection string from a file
-            string connectionString = File.ReadAllText("D:\\Study Material\\Fiverr\\DnD_Charactersheet\\DnD_Project\\db_connection.txt");
+            string connectionString = File.ReadAllText("db_connection.txt");
             //MessageBox.Show($"Connection String is {connectionString}","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             try
             {

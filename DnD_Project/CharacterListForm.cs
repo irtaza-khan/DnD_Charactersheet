@@ -64,5 +64,10 @@ namespace DnD_Project
             this.Hide();
             previousForm.Show();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

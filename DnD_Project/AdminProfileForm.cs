@@ -20,7 +20,7 @@ namespace DnD_Project
         }
 
         private string adminUsername;
-        private string connectionString = File.ReadAllText(@"D:\Study Material\Fiverr\DnD_Charactersheet\DnD_Project\db_connection.txt").Trim();
+        private string connectionString = File.ReadAllText(@"db_connection.txt").Trim();
 
         public AdminProfileForm(string username)
         {
