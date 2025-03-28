@@ -283,7 +283,15 @@ namespace DnD_Project
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)                  //Go back Button         
+        //txtLevel.TextChanged += (sender, e) =>
+        //{
+        //    if (int.TryParse(txtLevel.Text, out int newLevel))
+        //    {
+        //        txtProficiencyBonus.Text = CalculateProficiencyBonus(newLevel).ToString();
+        //    }
+        //};
+
+private void button1_Click(object sender, EventArgs e)                  //Go back Button         
         {
             this.Hide();
             if (previousForm is UserProfileForm userForm)
@@ -306,6 +314,17 @@ namespace DnD_Project
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        private int CalculateProficiencyBonus(int level)
+        {
+            if (level >= 1 && level <= 4) return 2;
+            if (level >= 5 && level <= 8) return 3;
+            if (level >= 9 && level <= 12) return 4;
+            if (level >= 13 && level <= 16) return 5;
+            if (level >= 17 && level <= 20) return 6;
+            return 0; // Invalid level case
         }
 
         private void addCharacter_Click(object sender, EventArgs e)
@@ -322,7 +341,9 @@ namespace DnD_Project
             int hitPointMax = Convert.ToInt32(numericUpDown2.Value);
             int currentHitPoints = Convert.ToInt32(textBox38.Text);
             string hitDice = comboBox1.SelectedItem.ToString();
-            int proficiencyBonus = 2 + (level - 1) / 4; // Standard D&D calculation
+            //int proficiencyBonus = 2 + (level - 1) / 4; // Standard D&D calculation
+            int proficiencyBonus = CalculateProficiencyBonus(level);
+
             string characterNotes = textBox52.Text;
             string featuresTraits = textBox51.Text;
             string equipments = textBox50.Text;
@@ -764,6 +785,12 @@ namespace DnD_Project
                 }
             }
 
+        }
+
+        private void addProficiency(object sender, EventArgs e)
+        {
+            int newlevel = Convert.ToInt32(comboBox2.SelectedItem);
+            textBox9.Text = CalculateProficiencyBonus(newlevel).ToString();
         }
     }
 }
