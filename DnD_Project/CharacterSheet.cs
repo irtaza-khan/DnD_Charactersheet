@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DnD_Project
 {
@@ -92,6 +93,13 @@ namespace DnD_Project
                             textBox6.Text = reader["Intelligence"].ToString();
                             textBox7.Text = reader["Wisdom"].ToString();
                             textBox8.Text = reader["Charisma"].ToString();
+
+                            strengthtext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox3.Text)).ToString();
+                            dexteritytext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox4.Text)).ToString();
+                            constitutiontext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox5.Text)).ToString();
+                            intelligencetext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox6.Text)).ToString();
+                            wisdomtext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox7.Text)).ToString();
+                            charismatext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox8.Text)).ToString();
 
                         }
                     }
@@ -291,7 +299,7 @@ namespace DnD_Project
         //    }
         //};
 
-private void button1_Click(object sender, EventArgs e)                  //Go back Button         
+        private void button1_Click(object sender, EventArgs e)                  //Go back Button         
         {
             this.Hide();
             if (previousForm is UserProfileForm userForm)
@@ -327,6 +335,15 @@ private void button1_Click(object sender, EventArgs e)                  //Go bac
             return 0; // Invalid level case
         }
 
+        
+        // Function to calculate ability modifier based on score
+        private int CalculateAbilityModifier(int score)
+        {
+            return (score - 10) / 2;
+        }
+
+
+
         private void addCharacter_Click(object sender, EventArgs e)
         {
             
@@ -356,6 +373,22 @@ private void button1_Click(object sender, EventArgs e)                  //Go bac
             int intelligence = Convert.ToInt32(textBox6.Text);
             int wisdom = Convert.ToInt32(textBox7.Text);
             int charisma = Convert.ToInt32(textBox8.Text);
+
+            // Ability Modifiers
+            int strength_modifier = CalculateAbilityModifier(strength);
+            int dexterity_modifier = CalculateAbilityModifier(dexterity);
+            int constitution_modifier = CalculateAbilityModifier(constitution);
+            int intelligence_modifier = CalculateAbilityModifier(intelligence);
+            int wisdom_modifier = CalculateAbilityModifier(wisdom);
+            int charisma_modifier = CalculateAbilityModifier(charisma);
+
+            strengthtext.Text = strength_modifier.ToString();
+            dexteritytext.Text = dexterity_modifier.ToString();
+            constitutiontext.Text = constitution_modifier.ToString();
+            intelligencetext.Text = intelligence_modifier.ToString();
+            wisdomtext.Text = wisdom_modifier.ToString();
+            charismatext.Text = charisma_modifier.ToString();
+
 
             // Saving throw proficiencies (from checkboxes)
             bool strengthSave = checkBox1.Checked;
@@ -745,10 +778,6 @@ private void button1_Click(object sender, EventArgs e)                  //Go bac
                 }
             }
         }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void deleteCharacter_Click(object sender, EventArgs e)
         {
@@ -791,6 +820,104 @@ private void button1_Click(object sender, EventArgs e)                  //Go bac
         {
             int newlevel = Convert.ToInt32(comboBox2.SelectedItem);
             textBox9.Text = CalculateProficiencyBonus(newlevel).ToString();
+        }
+
+
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void strengthtext_TextChanged(object sender, EventArgs e)
+        {
+            int strengthScore = 0;
+            if (!string.IsNullOrWhiteSpace(textBox4.Text) && int.TryParse(textBox3.Text, out strengthScore))
+            {
+                if (strengthScore > 30)
+                {
+                    strengthScore = 30;
+                    textBox3.Text = "30";
+                    textBox3.SelectionStart = textBox3.Text.Length;
+                }
+            }
+            strengthtext.Text = CalculateAbilityModifier(strengthScore).ToString();
+        }
+        private void dexteritytext_TextChanged(object sender, EventArgs e)
+        {
+            int dexterityScore = 0;
+            if (!string.IsNullOrWhiteSpace(textBox4.Text) && int.TryParse(textBox4.Text, out dexterityScore))
+            {
+                if (dexterityScore > 30)
+                {
+                    dexterityScore = 30;
+                    textBox4.Text = "30";
+                    textBox4.SelectionStart = textBox4.Text.Length;
+                }
+            }
+            dexteritytext.Text = CalculateAbilityModifier(dexterityScore).ToString();
+        }
+        private void constitutiontext_TextChanged(object sender, EventArgs e)
+        {
+            int constitutionScore = 0;
+            if (!string.IsNullOrWhiteSpace(textBox5.Text) && int.TryParse(textBox5.Text, out constitutionScore))
+            {
+                if (constitutionScore > 30)
+                {
+                    constitutionScore = 30;
+                    textBox5.Text = "30";
+                    textBox5.SelectionStart = textBox5.Text.Length;
+                }
+            }
+            constitutiontext.Text = CalculateAbilityModifier(constitutionScore).ToString();
+        }
+        private void intelligencetext_TextChanged(object sender, EventArgs e)
+        {
+            int intelligenceScore = 0;
+            if (!string.IsNullOrWhiteSpace(textBox6.Text) && int.TryParse(textBox6.Text, out intelligenceScore))
+            {
+                if (intelligenceScore > 30)
+                {
+                    intelligenceScore = 30;
+                    textBox6.Text = "30";
+                    textBox6.SelectionStart = textBox6.Text.Length;
+                }
+            }
+            intelligencetext.Text = CalculateAbilityModifier(intelligenceScore).ToString();
+        }
+        private void wisomtext_TextChanged(object sender, EventArgs e)
+        {
+
+            int wisdomScore = 0;
+            if (!string.IsNullOrWhiteSpace(textBox7.Text) && int.TryParse(textBox7.Text, out wisdomScore))
+            {
+                if (wisdomScore > 30)
+                {
+                    wisdomScore = 30;
+                    textBox7.Text = "30";
+                    textBox7.SelectionStart = textBox7.Text.Length;
+                }
+            }
+            wisdomtext.Text = CalculateAbilityModifier(wisdomScore).ToString();
+        }
+        private void charismatext_TextChanged(object sender, EventArgs e)
+        {
+            int charismaScore = 0;
+            if (!string.IsNullOrWhiteSpace(textBox8.Text) && int.TryParse(textBox8.Text, out charismaScore))
+            {
+                if (charismaScore > 30)
+                {
+                    charismaScore = 30;
+                    textBox8.Text = "30";
+                    textBox8.SelectionStart = textBox8.Text.Length;
+                }
+            }
+            charismatext.Text = CalculateAbilityModifier(charismaScore).ToString();
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

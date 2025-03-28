@@ -94,22 +94,27 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.charismatext = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.wisdomtext = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.intelligencetext = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.constitutiontext = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.strengthtext = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -121,6 +126,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dexteritytext = new System.Windows.Forms.TextBox();
             this.checkBox23 = new System.Windows.Forms.CheckBox();
             this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
@@ -903,11 +909,12 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(36, 46);
+            this.textBox8.Location = new System.Drawing.Point(75, 768);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(87, 26);
             this.textBox8.TabIndex = 2;
+            this.textBox8.TextChanged += new System.EventHandler(this.charismatext_TextChanged);
             this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label10
@@ -924,7 +931,7 @@
             // groupBox9
             // 
             this.groupBox9.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox9.Controls.Add(this.textBox8);
+            this.groupBox9.Controls.Add(this.charismatext);
             this.groupBox9.Controls.Add(this.label10);
             this.groupBox9.Location = new System.Drawing.Point(33, 689);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
@@ -934,14 +941,25 @@
             this.groupBox9.TabIndex = 38;
             this.groupBox9.TabStop = false;
             // 
+            // charismatext
+            // 
+            this.charismatext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.charismatext.Location = new System.Drawing.Point(59, 45);
+            this.charismatext.Margin = new System.Windows.Forms.Padding(4);
+            this.charismatext.Name = "charismatext";
+            this.charismatext.ReadOnly = true;
+            this.charismatext.Size = new System.Drawing.Size(56, 26);
+            this.charismatext.TabIndex = 8;
+            // 
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(36, 46);
+            this.textBox7.Location = new System.Drawing.Point(74, 676);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(87, 26);
             this.textBox7.TabIndex = 2;
+            this.textBox7.TextChanged += new System.EventHandler(this.wisomtext_TextChanged);
             this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label9
@@ -958,7 +976,7 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox8.Controls.Add(this.textBox7);
+            this.groupBox8.Controls.Add(this.wisdomtext);
             this.groupBox8.Controls.Add(this.label9);
             this.groupBox8.Location = new System.Drawing.Point(33, 588);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
@@ -968,14 +986,25 @@
             this.groupBox8.TabIndex = 37;
             this.groupBox8.TabStop = false;
             // 
+            // wisdomtext
+            // 
+            this.wisdomtext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wisdomtext.Location = new System.Drawing.Point(59, 45);
+            this.wisdomtext.Margin = new System.Windows.Forms.Padding(4);
+            this.wisdomtext.Name = "wisdomtext";
+            this.wisdomtext.ReadOnly = true;
+            this.wisdomtext.Size = new System.Drawing.Size(56, 26);
+            this.wisdomtext.TabIndex = 7;
+            // 
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(36, 47);
+            this.textBox6.Location = new System.Drawing.Point(74, 571);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(87, 26);
             this.textBox6.TabIndex = 2;
+            this.textBox6.TextChanged += new System.EventHandler(this.intelligencetext_TextChanged);
             this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label8
@@ -992,7 +1021,7 @@
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox7.Controls.Add(this.textBox6);
+            this.groupBox7.Controls.Add(this.intelligencetext);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Location = new System.Drawing.Point(33, 487);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
@@ -1002,14 +1031,25 @@
             this.groupBox7.TabIndex = 34;
             this.groupBox7.TabStop = false;
             // 
+            // intelligencetext
+            // 
+            this.intelligencetext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intelligencetext.Location = new System.Drawing.Point(59, 50);
+            this.intelligencetext.Margin = new System.Windows.Forms.Padding(4);
+            this.intelligencetext.Name = "intelligencetext";
+            this.intelligencetext.ReadOnly = true;
+            this.intelligencetext.Size = new System.Drawing.Size(56, 26);
+            this.intelligencetext.TabIndex = 6;
+            // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(36, 46);
+            this.textBox5.Location = new System.Drawing.Point(75, 471);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(87, 26);
             this.textBox5.TabIndex = 2;
+            this.textBox5.TextChanged += new System.EventHandler(this.constitutiontext_TextChanged);
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label7
@@ -1050,7 +1090,7 @@
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox6.Controls.Add(this.textBox5);
+            this.groupBox6.Controls.Add(this.constitutiontext);
             this.groupBox6.Controls.Add(this.label7);
             this.groupBox6.Location = new System.Drawing.Point(33, 386);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
@@ -1060,14 +1100,25 @@
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             // 
+            // constitutiontext
+            // 
+            this.constitutiontext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.constitutiontext.Location = new System.Drawing.Point(59, 45);
+            this.constitutiontext.Margin = new System.Windows.Forms.Padding(4);
+            this.constitutiontext.Name = "constitutiontext";
+            this.constitutiontext.ReadOnly = true;
+            this.constitutiontext.Size = new System.Drawing.Size(56, 26);
+            this.constitutiontext.TabIndex = 3;
+            // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(36, 46);
+            this.textBox4.Location = new System.Drawing.Point(75, 368);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(87, 26);
             this.textBox4.TabIndex = 2;
+            this.textBox4.TextChanged += new System.EventHandler(this.dexteritytext_TextChanged);
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label6
@@ -1084,12 +1135,12 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(35, 48);
+            this.textBox3.Location = new System.Drawing.Point(75, 266);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(87, 26);
             this.textBox3.TabIndex = 0;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox3.TextChanged += new System.EventHandler(this.strengthtext_TextChanged);
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label5
@@ -1106,7 +1157,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.strengthtext);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(33, 185);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
@@ -1115,6 +1166,17 @@
             this.groupBox4.Size = new System.Drawing.Size(165, 94);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // strengthtext
+            // 
+            this.strengthtext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strengthtext.Location = new System.Drawing.Point(59, 47);
+            this.strengthtext.Margin = new System.Windows.Forms.Padding(4);
+            this.strengthtext.Name = "strengthtext";
+            this.strengthtext.ReadOnly = true;
+            this.strengthtext.Size = new System.Drawing.Size(56, 26);
+            this.strengthtext.TabIndex = 5;
             // 
             // label4
             // 
@@ -1257,7 +1319,7 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.dexteritytext);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Location = new System.Drawing.Point(33, 286);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
@@ -1266,6 +1328,16 @@
             this.groupBox5.Size = new System.Drawing.Size(165, 94);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
+            // 
+            // dexteritytext
+            // 
+            this.dexteritytext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dexteritytext.Location = new System.Drawing.Point(59, 48);
+            this.dexteritytext.Margin = new System.Windows.Forms.Padding(4);
+            this.dexteritytext.Name = "dexteritytext";
+            this.dexteritytext.ReadOnly = true;
+            this.dexteritytext.Size = new System.Drawing.Size(56, 26);
+            this.dexteritytext.TabIndex = 4;
             // 
             // checkBox23
             // 
@@ -1690,7 +1762,7 @@
             // 
             this.addCharacter.BackColor = System.Drawing.Color.Tan;
             this.addCharacter.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.addCharacter.Location = new System.Drawing.Point(35, 795);
+            this.addCharacter.Location = new System.Drawing.Point(35, 798);
             this.addCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.addCharacter.Name = "addCharacter";
             this.addCharacter.Size = new System.Drawing.Size(164, 49);
@@ -1732,7 +1804,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1372, 897);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.deleteCharacter);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.goback);
             this.Controls.Add(this.addCharacter);
             this.Controls.Add(this.groupBox18);
@@ -1948,5 +2026,11 @@
         private System.Windows.Forms.Button addCharacter;
         private System.Windows.Forms.Button goback;
         private System.Windows.Forms.Button deleteCharacter;
+        private System.Windows.Forms.TextBox constitutiontext;
+        private System.Windows.Forms.TextBox strengthtext;
+        private System.Windows.Forms.TextBox dexteritytext;
+        private System.Windows.Forms.TextBox wisdomtext;
+        private System.Windows.Forms.TextBox intelligencetext;
+        private System.Windows.Forms.TextBox charismatext;
     }
 }
