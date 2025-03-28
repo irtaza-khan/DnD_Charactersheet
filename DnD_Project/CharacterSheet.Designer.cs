@@ -145,12 +145,12 @@
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.sum6 = new System.Windows.Forms.TextBox();
+            this.sum5 = new System.Windows.Forms.TextBox();
+            this.sum4 = new System.Windows.Forms.TextBox();
+            this.sum2 = new System.Windows.Forms.TextBox();
+            this.sum3 = new System.Windows.Forms.TextBox();
+            this.sum1 = new System.Windows.Forms.TextBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -1589,71 +1589,74 @@
             this.checkBox12.Text = "Acrobatics";
             this.checkBox12.UseVisualStyleBackColor = true;
             // 
-            // textBox15
+            // sum6
             // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(183, 143);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(44, 17);
-            this.textBox15.TabIndex = 13;
+            this.sum6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sum6.Location = new System.Drawing.Point(183, 143);
+            this.sum6.Margin = new System.Windows.Forms.Padding(4);
+            this.sum6.Name = "sum6";
+            this.sum6.ReadOnly = true;
+            this.sum6.Size = new System.Drawing.Size(44, 17);
+            this.sum6.TabIndex = 13;
             // 
-            // textBox14
+            // sum5
             // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(183, 118);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(44, 17);
-            this.textBox14.TabIndex = 12;
+            this.sum5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sum5.Location = new System.Drawing.Point(183, 118);
+            this.sum5.Margin = new System.Windows.Forms.Padding(4);
+            this.sum5.Name = "sum5";
+            this.sum5.ReadOnly = true;
+            this.sum5.Size = new System.Drawing.Size(44, 17);
+            this.sum5.TabIndex = 12;
             // 
-            // textBox13
+            // sum4
             // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(183, 95);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(44, 17);
-            this.textBox13.TabIndex = 11;
+            this.sum4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sum4.Location = new System.Drawing.Point(183, 95);
+            this.sum4.Margin = new System.Windows.Forms.Padding(4);
+            this.sum4.Name = "sum4";
+            this.sum4.ReadOnly = true;
+            this.sum4.Size = new System.Drawing.Size(44, 17);
+            this.sum4.TabIndex = 11;
             // 
-            // textBox12
+            // sum2
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(183, 46);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(44, 17);
-            this.textBox12.TabIndex = 10;
+            this.sum2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sum2.Location = new System.Drawing.Point(183, 46);
+            this.sum2.Margin = new System.Windows.Forms.Padding(4);
+            this.sum2.Name = "sum2";
+            this.sum2.ReadOnly = true;
+            this.sum2.Size = new System.Drawing.Size(44, 17);
+            this.sum2.TabIndex = 10;
+            this.sum2.TextChanged += new System.EventHandler(this.sum2_TextChanged);
             // 
-            // textBox10
+            // sum3
             // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(183, 70);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(44, 17);
-            this.textBox10.TabIndex = 10;
+            this.sum3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sum3.Location = new System.Drawing.Point(183, 70);
+            this.sum3.Margin = new System.Windows.Forms.Padding(4);
+            this.sum3.Name = "sum3";
+            this.sum3.ReadOnly = true;
+            this.sum3.Size = new System.Drawing.Size(44, 17);
+            this.sum3.TabIndex = 10;
+            this.sum3.TextChanged += new System.EventHandler(this.sum3_TextChanged);
             // 
-            // textBox11
+            // sum1
             // 
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(183, 21);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(44, 17);
-            this.textBox11.TabIndex = 9;
+            this.sum1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sum1.Location = new System.Drawing.Point(183, 21);
+            this.sum1.Margin = new System.Windows.Forms.Padding(4);
+            this.sum1.Name = "sum1";
+            this.sum1.ReadOnly = true;
+            this.sum1.Size = new System.Drawing.Size(44, 17);
+            this.sum1.TabIndex = 9;
+            this.sum1.TextChanged += new System.EventHandler(this.sum1_TextChanged);
             // 
             // checkBox6
             // 
@@ -1736,12 +1739,12 @@
             // groupBox11
             // 
             this.groupBox11.BackColor = System.Drawing.Color.SandyBrown;
-            this.groupBox11.Controls.Add(this.textBox15);
-            this.groupBox11.Controls.Add(this.textBox14);
-            this.groupBox11.Controls.Add(this.textBox13);
-            this.groupBox11.Controls.Add(this.textBox12);
-            this.groupBox11.Controls.Add(this.textBox10);
-            this.groupBox11.Controls.Add(this.textBox11);
+            this.groupBox11.Controls.Add(this.sum6);
+            this.groupBox11.Controls.Add(this.sum5);
+            this.groupBox11.Controls.Add(this.sum4);
+            this.groupBox11.Controls.Add(this.sum2);
+            this.groupBox11.Controls.Add(this.sum3);
+            this.groupBox11.Controls.Add(this.sum1);
             this.groupBox11.Controls.Add(this.checkBox6);
             this.groupBox11.Controls.Add(this.checkBox5);
             this.groupBox11.Controls.Add(this.checkBox4);
@@ -2010,12 +2013,12 @@
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox sum6;
+        private System.Windows.Forms.TextBox sum5;
+        private System.Windows.Forms.TextBox sum4;
+        private System.Windows.Forms.TextBox sum2;
+        private System.Windows.Forms.TextBox sum3;
+        private System.Windows.Forms.TextBox sum1;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox4;

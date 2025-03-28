@@ -101,6 +101,8 @@ namespace DnD_Project
                             wisdomtext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox7.Text)).ToString();
                             charismatext.Text = CalculateAbilityModifier(Convert.ToInt32(textBox8.Text)).ToString();
 
+                            
+
                         }
                     }
                 }
@@ -247,6 +249,8 @@ namespace DnD_Project
 
 
 
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -281,6 +285,7 @@ namespace DnD_Project
                     checkbox.Enabled = true;
                 }
             }
+            UpdateSavingThrows();
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
@@ -299,6 +304,47 @@ namespace DnD_Project
         //    }
         //};
 
+
+        void UpdateSavingThrows()
+        {
+            int proficiencyBonus = Convert.ToInt32(textBox9.Text);
+            // Strength
+            sum1.Text = checkBox1.Checked
+                ? ((Convert.ToInt32(strengthtext.Text)) + proficiencyBonus).ToString()
+                : ((Convert.ToInt32(strengthtext.Text))).ToString();
+
+            // Dexterity
+            sum2.Text = checkBox2.Checked
+                ? (((Convert.ToInt32(dexteritytext.Text))) + proficiencyBonus).ToString()
+                : ((Convert.ToInt32(dexteritytext.Text))).ToString();
+
+            // Constitution
+            sum3.Text = checkBox3.Checked
+                ? (((Convert.ToInt32(constitutiontext.Text))) + proficiencyBonus).ToString()
+                : ((Convert.ToInt32(constitutiontext.Text))).ToString();
+
+            // Intelligence
+            sum4.Text = checkBox4.Checked
+                ? (((Convert.ToInt32(intelligencetext.Text))) + proficiencyBonus).ToString()
+                : ((Convert.ToInt32(intelligencetext.Text))).ToString();
+
+            // Wisdom
+            sum5.Text = checkBox5.Checked
+                ? (((Convert.ToInt32(wisdomtext.Text))) + proficiencyBonus).ToString()
+                : ((Convert.ToInt32(wisdomtext.Text))).ToString();
+
+            // Charisma
+            sum6.Text = checkBox6.Checked
+                ? (((Convert.ToInt32(charismatext.Text))) + proficiencyBonus).ToString()
+                : ((Convert.ToInt32(charismatext.Text))).ToString();
+        }
+
+        // Call this function whenever a checkbox is checked/unchecked
+        void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSavingThrows();
+        }
+
         private void button1_Click(object sender, EventArgs e)                  //Go back Button         
         {
             this.Hide();
@@ -306,10 +352,7 @@ namespace DnD_Project
             {
                 userForm.LoadCharacters();
             }
-            else
-            {
-                MessageBox.Show("Previous form does not support LoadUserData.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
             previousForm.Show();
 
         }
@@ -916,6 +959,21 @@ namespace DnD_Project
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sum3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sum2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sum1_TextChanged(object sender, EventArgs e)
         {
 
         }
