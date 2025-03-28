@@ -48,32 +48,10 @@ namespace DnD_Project
 
         private void linkSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SignInForm signInForm = new SignInForm(); // Open Sign-In Form
+            SignInForm signInForm = new SignInForm(); 
             signInForm.Show();
-            //P("Going to sign in");
-            //MessageBox.Show("Going to sign in");
-            this.Hide(); // Close Sign-Up Form
+            this.Hide(); 
         }
-
-
-        //private void btnSignUp_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtName.Text) ||
-        //        string.IsNullOrWhiteSpace(txtEmail.Text) ||
-        //        string.IsNullOrWhiteSpace(txtPassword.Text) ||
-        //        cmbRole.SelectedIndex == -1)
-        //    {
-        //        MessageBox.Show("Please fill all fields and select a role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return;
-        //    }
-
-        //    string name = txtName.Text;
-        //    string email = txtEmail.Text;
-        //    string password = txtPassword.Text;
-        //    string role = cmbRole.SelectedItem.ToString();
-
-        //    MessageBox.Show($"Sign-Up Successful!\n\nName: {name}\nUsername: {email}\nRole: {role}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //}
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             // Hide the label initially
@@ -94,8 +72,7 @@ namespace DnD_Project
             string role = cmbRole.SelectedItem.ToString();
 
             // Read connection string from a file
-            string connectionString = File.ReadAllText("db_connection.txt");
-            //MessageBox.Show($"Connection String is {connectionString}","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string connectionString = File.ReadAllText(@"db_connection.txt").Trim();
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))

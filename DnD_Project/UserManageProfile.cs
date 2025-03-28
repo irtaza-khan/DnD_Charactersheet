@@ -33,8 +33,6 @@ namespace DnD_Project
 
         private int GetUserIDByUsername(string username)
         {
-            string dbFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "db_connection.txt");
-            string connectionString = File.ReadAllText(dbFilePath).Trim();
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
