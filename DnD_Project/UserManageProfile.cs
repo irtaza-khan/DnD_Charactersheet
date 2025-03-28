@@ -90,26 +90,54 @@ namespace DnD_Project
                     {
                         //string getCharactersQuery = "SELECT COUNT(*) FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
 
-                        // Fetch Character Names
-                        string getCharactersQuery = "SELECT Character_Name FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
-                        using (SqlCommand getCharCmd = new SqlCommand(getCharactersQuery, conn))
+                        // Fetch Characters Linked to User
+                        string charQuery1 = "SELECT COUNT(*) FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
+                        int charCount = 0;
+
+                        using (SqlCommand charCmd = new SqlCommand(charQuery, conn))
                         {
-                            getCharCmd.Parameters.AddWithValue("@username", selectedUsername);
-                            using (SqlDataReader charReader = getCharCmd.ExecuteReader())
+                            charCmd.Parameters.AddWithValue("@username", selectedUsername);
+                            charCount = (int)charCmd.ExecuteScalar();
+                        }
+                        cmbChar.Items.Clear();
+
+                        // Fetch character data from database
+                        string fetchCharData = "SELECT Character_ID, Character_Name FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
+
+                        List<KeyValuePair<int, string>> characterList = new List<KeyValuePair<int, string>>();
+
+                        using (SqlCommand nameCmd = new SqlCommand(fetchCharData, conn))
+                        {
+                            nameCmd.Parameters.AddWithValue("@username", selectedUsername);
+                            using (SqlDataReader nameReader = nameCmd.ExecuteReader())
                             {
-                                while (charReader.Read())
+                                while (nameReader.Read())
                                 {
-                                    cmbChar.Items.Add(charReader["Character_Name"].ToString());
+                                    int characterId = nameReader.GetInt32(0);
+                                    string characterName = nameReader.GetString(1);
+
+                                    characterList.Add(new KeyValuePair<int, string>(characterId, characterName));
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        cmbChar.Items.Add("None");
-                    }
 
-                    cmbChar.SelectedIndex = 0; // Select first item
+                        // If no characters found, add "None" option
+                        if (characterList.Count == 0)
+                        {
+                            characterList.Add(new KeyValuePair<int, string>(0, "None"));
+                            txtChar.Text = "0";
+                        }
+                        else
+                        {
+                            txtChar.Text = characterList.Count.ToString(); // Store character count
+                        }
+
+                        // Bind the list to the ComboBox
+                        cmbChar.DataSource = characterList;
+                        cmbChar.DisplayMember = "Value"; // Show Character_Name
+                        cmbChar.ValueMember = "Key"; // Store Character_ID
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -125,9 +153,16 @@ namespace DnD_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CharacterSheet sheet = new CharacterSheet(this, GetUserIDByUsername(this.selectedUsername));
-            sheet.Show();
-            this.Hide(); 
+            if (cmbChar.SelectedValue != null && int.TryParse(cmbChar.SelectedValue.ToString(), out int selectedCharacterID))
+            {
+                CharacterSheet characterSheetForm = new CharacterSheet(this, GetUserIDByUsername(this.selectedUsername), selectedCharacterID, true);
+                characterSheetForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid character selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

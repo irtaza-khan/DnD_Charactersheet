@@ -79,39 +79,42 @@ namespace DnD_Project
                     }
                     cmbRole.Items.Clear();
 
+                    // Fetch character data from database
                     string fetchCharData = "SELECT Character_ID, Character_Name FROM Characters WHERE UserID = (SELECT UserID FROM Users WHERE Username = @username)";
+
+                    List<KeyValuePair<int, string>> characterList = new List<KeyValuePair<int, string>>();
 
                     using (SqlCommand nameCmd = new SqlCommand(fetchCharData, conn))
                     {
                         nameCmd.Parameters.AddWithValue("@username", currentUsername);
                         using (SqlDataReader nameReader = nameCmd.ExecuteReader())
                         {
-                            cmbRole.Items.Clear(); // Clear previous items if any
-
                             while (nameReader.Read())
                             {
-                                int characterId = nameReader.GetInt32(0); // Fetch Character_ID
-                                string characterName = nameReader.GetString(1); // Fetch Character_Name
+                                int characterId = nameReader.GetInt32(0);
+                                string characterName = nameReader.GetString(1);
 
-                                cmbRole.Items.Add(new KeyValuePair<int, string>(characterId, characterName));
+                                characterList.Add(new KeyValuePair<int, string>(characterId, characterName));
                             }
                         }
                     }
 
-                    // Set display & value members
-                    cmbRole.DisplayMember = "Value"; // Show Character_Name in ComboBox
-                    cmbRole.ValueMember = "Key"; // Use Character_ID as the actual value
-
-                    // If no characters found, set "None"
-                    if (cmbRole.Items.Count == 0)
+                    // If no characters found, add "None" option
+                    if (characterList.Count == 0)
                     {
-                        cmbRole.Items.Add(new KeyValuePair<int, string>(0, "None"));
+                        characterList.Add(new KeyValuePair<int, string>(0, "None"));
                         txtPassword.Text = "0";
                     }
                     else
                     {
-                        txtPassword.Text = cmbRole.Items.Count.ToString(); // Store character count
+                        txtPassword.Text = characterList.Count.ToString(); // Store character count
                     }
+
+                    // Bind the list to the ComboBox
+                    cmbRole.DataSource = characterList;
+                    cmbRole.DisplayMember = "Value"; // Show Character_Name
+                    cmbRole.ValueMember = "Key"; // Store Character_ID
+
 
 
                 }
@@ -148,7 +151,7 @@ namespace DnD_Project
             this.Hide(); 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)            //Add Character
         {
             this.userid = GetUserIDByUsername(this.currentUsername);
             CharacterSheet sheet = new CharacterSheet(this, userid);
@@ -156,12 +159,43 @@ namespace DnD_Project
             this.Hide();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)            //Edit Selected Character
         {
-            this.userid = GetUserIDByUsername(this.currentUsername);
-            CharacterSheet sheet = new CharacterSheet(this, userid);
-            sheet.Show();
-            this.Hide(); 
+            //if (cmbRole.SelectedItem != null && cmbRole.SelectedItem.ToString() != "None")
+            //{
+            //    int selectedCharacterID = Convert.ToInt32(cmbRole.SelectedValue);  // Fetch character ID
+
+            //    // Open the CharacterSheetForm for editing
+            //    MessageBox.Show("Character ID: " + selectedCharacterID);
+            //    CharacterSheet characterSheetForm = new CharacterSheet(this, userid, selectedCharacterID, true);
+            //    characterSheetForm.Show();
+            //    this.Hide();
+
+            //    // Optionally refresh character dropdown after update
+            //    //LoadCharacterDropdown();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a character to view.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+
+            if (cmbRole.SelectedValue != null && int.TryParse(cmbRole.SelectedValue.ToString(), out int selectedCharacterID))
+            {
+                CharacterSheet characterSheetForm = new CharacterSheet(this, userid, selectedCharacterID, true);
+                characterSheetForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid character selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+
+            //this.userid = GetUserIDByUsername(this.currentUsername);
+            //CharacterSheet sheet = new CharacterSheet(this, userid);
+            //sheet.Show();
+            //this.Hide(); 
         }
 
         private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,7 +203,7 @@ namespace DnD_Project
 
         }
 
-        private void viewCharacterButton_Click(object sender, EventArgs e)
+        private void viewCharacterButton_Click(object sender, EventArgs e)  //View all characters
         {
             
             CharacterListForm detailsForm = new CharacterListForm(this);

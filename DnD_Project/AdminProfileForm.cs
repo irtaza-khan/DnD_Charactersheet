@@ -100,9 +100,7 @@ namespace DnD_Project
         {
             SignInForm signin = new SignInForm(); // Open Sign-In Form
             signin.Show();
-            //P("Going to sign in");
-            //MessageBox.Show("Going to sign in");
-            this.Hide(); // Close Sign-Up Form
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,9 +115,6 @@ namespace DnD_Project
             UserManageProfile userManageForm = new UserManageProfile(selectedUser, adminUsername);
             userManageForm.Show();
             this.Hide();
-            //UserManageProfile sheet = new UserManageProfile(); 
-            //sheet.Show();
-            //this.Hide(); // Close Sign-Up Form
         }
 
         private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
