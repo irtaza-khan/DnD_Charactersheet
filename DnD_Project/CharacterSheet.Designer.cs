@@ -597,16 +597,16 @@
             // textBox45
             // 
             this.textBox45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox45.Location = new System.Drawing.Point(291, 108);
+            this.textBox45.Location = new System.Drawing.Point(15, 107);
             this.textBox45.Margin = new System.Windows.Forms.Padding(4);
             this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new System.Drawing.Size(139, 24);
+            this.textBox45.Size = new System.Drawing.Size(140, 24);
             this.textBox45.TabIndex = 14;
             // 
             // textBox46
             // 
             this.textBox46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox46.Location = new System.Drawing.Point(171, 107);
+            this.textBox46.Location = new System.Drawing.Point(171, 108);
             this.textBox46.Margin = new System.Windows.Forms.Padding(4);
             this.textBox46.Name = "textBox46";
             this.textBox46.Size = new System.Drawing.Size(111, 24);
@@ -615,28 +615,28 @@
             // textBox47
             // 
             this.textBox47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox47.Location = new System.Drawing.Point(15, 108);
+            this.textBox47.Location = new System.Drawing.Point(290, 107);
             this.textBox47.Margin = new System.Windows.Forms.Padding(4);
             this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(140, 24);
+            this.textBox47.Size = new System.Drawing.Size(139, 24);
             this.textBox47.TabIndex = 12;
             // 
             // textBox43
             // 
             this.textBox43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox43.Location = new System.Drawing.Point(291, 76);
+            this.textBox43.Location = new System.Drawing.Point(171, 76);
             this.textBox43.Margin = new System.Windows.Forms.Padding(4);
             this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(139, 24);
+            this.textBox43.Size = new System.Drawing.Size(111, 24);
             this.textBox43.TabIndex = 11;
             // 
             // textBox44
             // 
             this.textBox44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox44.Location = new System.Drawing.Point(171, 75);
+            this.textBox44.Location = new System.Drawing.Point(291, 75);
             this.textBox44.Margin = new System.Windows.Forms.Padding(4);
             this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(111, 24);
+            this.textBox44.Size = new System.Drawing.Size(139, 24);
             this.textBox44.TabIndex = 10;
             // 
             // groupBox22
@@ -1722,6 +1722,7 @@
             this.deleteCharacter.TabIndex = 47;
             this.deleteCharacter.Text = "Delete";
             this.deleteCharacter.UseVisualStyleBackColor = false;
+            this.deleteCharacter.Click += new System.EventHandler(this.deleteCharacter_Click);
             // 
             // CharacterSheet
             // 

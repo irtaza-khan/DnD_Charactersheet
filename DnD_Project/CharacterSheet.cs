@@ -20,7 +20,6 @@ namespace DnD_Project
         private int userid;
         private int characterid;
         private bool edit = false;
-        //string dbFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "db_connection.txt");
         private string connectionString = File.ReadAllText(@"db_connection.txt").Trim();
         public CharacterSheet()
         {
@@ -100,6 +99,7 @@ namespace DnD_Project
             }
             LoadSavingThrows();
             LoadSkills();
+            LoadAttack();
         }
 
         private void LoadSavingThrows()
@@ -176,6 +176,69 @@ namespace DnD_Project
             }
         }
 
+        public void LoadAttack()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string selectQuery = @"
+                SELECT name, attack_bonus, damage_type 
+                FROM AttacksAndSpellcasting 
+                WHERE character_id = @CharacterId;";
+
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CharacterId", characterid);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // Debugging: Clear existing values
+                            textBox39.Text = textBox42.Text = textBox45.Text = "";
+                            textBox40.Text = textBox43.Text = textBox46.Text = "";
+                            textBox41.Text = textBox44.Text = textBox47.Text = "";
+
+                            int i = 0;
+                            while (reader.Read() && i < 3) // Load up to 3 attacks
+                            {
+                                string name = reader["name"].ToString();
+                                string attackBonus = reader["attack_bonus"].ToString();
+                                string damageType = reader["damage_type"].ToString();
+
+                                Console.WriteLine($"Attack {i + 1}: {name}, {attackBonus}, {damageType}"); // Debugging
+
+                                if (i == 0)
+                                {
+                                    textBox39.Text = name;
+                                    textBox40.Text = attackBonus;
+                                    textBox41.Text = damageType;
+                                }
+                                else if (i == 1)
+                                {
+                                    textBox42.Text = name;
+                                    textBox43.Text = attackBonus;
+                                    textBox44.Text = damageType;
+                                }
+                                else if (i == 2)
+                                {
+                                    textBox45.Text = name;
+                                    textBox46.Text = attackBonus;
+                                    textBox47.Text = damageType;
+                                }
+                                i++;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading attacks: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -220,10 +283,19 @@ namespace DnD_Project
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) //Go back Button
+        private void button1_Click(object sender, EventArgs e)                  //Go back Button         
         {
             this.Hide();
+            if (previousForm is UserProfileForm userForm)
+            {
+                userForm.LoadCharacters();
+            }
+            else
+            {
+                MessageBox.Show("Previous form does not support LoadUserData.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             previousForm.Show();
+
         }
 
         private void CharacterSheet_Load(object sender, EventArgs e)
@@ -354,10 +426,11 @@ namespace DnD_Project
                                 characterId = Convert.ToInt32(cmd.ExecuteScalar());
                             }
 
-                            // Insert into Abilities table
+                        // Insert into Abilities table
 
-                            // Link abilities to character with proficiency status
-
+                        // Link abilities to character with proficiency status
+                        edit = true;
+                        this.characterid = characterId;
                             // Insert saving throws
                             string insertSavingThrowsQuery = @"
                 INSERT INTO SavingThrows (
@@ -417,7 +490,62 @@ namespace DnD_Project
                                 cmd.ExecuteNonQuery();
                             }
 
-                            MessageBox.Show("Character added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Insert Attacks and Spellcasting
+                        string insertAttackQuery = @"
+                INSERT INTO AttacksAndSpellcasting (character_id, name, attack_bonus, damage_type)
+                VALUES (@CharacterId, @Name, @AttackBonus, @DamageType);";
+
+
+                        string name = textBox39.Text;
+                        string bonus = textBox40.Text;
+                        string damagetype = textBox41.Text;
+                        if (!string.IsNullOrWhiteSpace(name))
+                        {
+                            using (SqlCommand cmd = new SqlCommand(insertAttackQuery, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@CharacterId", characterId);
+                                cmd.Parameters.AddWithValue("@Name", name);
+                                cmd.Parameters.AddWithValue("@AttackBonus", bonus);
+                                cmd.Parameters.AddWithValue("@DamageType", damagetype);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        name = textBox42.Text;
+                        bonus = textBox43.Text;
+                        damagetype = textBox44.Text;
+
+                        if (!string.IsNullOrWhiteSpace(name))
+                        {
+                            using (SqlCommand cmd = new SqlCommand(insertAttackQuery, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@CharacterId", characterId);
+                                cmd.Parameters.AddWithValue("@Name", name);
+                                cmd.Parameters.AddWithValue("@AttackBonus", bonus);
+                                cmd.Parameters.AddWithValue("@DamageType", damagetype);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+
+                        name = textBox45.Text;
+                        bonus = textBox46.Text;
+                        damagetype = textBox47.Text;
+
+                        if (!string.IsNullOrWhiteSpace(name))
+                        {
+                            using (SqlCommand cmd = new SqlCommand(insertAttackQuery, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@CharacterId", characterId);
+                                cmd.Parameters.AddWithValue("@Name", name);
+                                cmd.Parameters.AddWithValue("@AttackBonus", bonus);
+                                cmd.Parameters.AddWithValue("@DamageType", damagetype);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+
+                        MessageBox.Show("Character added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -441,14 +569,14 @@ namespace DnD_Project
 
                         // Update Characters Table
                         string updateCharacterQuery = @"
-                UPDATE Characters 
-                SET character_name = @CharacterName, class = @Class, level = @Level, race = @Race, background = @Background,
-                    strength = @Strength, dexterity = @Dexterity, constitution = @Constitution, intelligence = @Intelligence,
-                    wisdom = @Wisdom, charisma = @Charisma, proficiency_bonus = @ProficiencyBonus, armor_class = @ArmorClass,
-                    initiative = @Initiative, speed = @Speed, hit_point_maximum = @HitPointMax, current_hit_points = @CurrentHitPoints,
-                    hit_dice = @HitDice, character_notes = @CharacterNotes, features_traits = @FeaturesTraits,
-                    equipment = @Equipments, other_proficiency = @OtherProficiency
-                WHERE character_id = @CharacterId";
+                        UPDATE Characters 
+                        SET character_name = @CharacterName, class = @Class, level = @Level, race = @Race, background = @Background,
+                            strength = @Strength, dexterity = @Dexterity, constitution = @Constitution, intelligence = @Intelligence,
+                            wisdom = @Wisdom, charisma = @Charisma, proficiency_bonus = @ProficiencyBonus, armor_class = @ArmorClass,
+                            initiative = @Initiative, speed = @Speed, hit_point_maximum = @HitPointMax, current_hit_points = @CurrentHitPoints,
+                            hit_dice = @HitDice, character_notes = @CharacterNotes, features_traits = @FeaturesTraits,
+                            equipment = @Equipments, other_proficiency = @OtherProficiency
+                        WHERE character_id = @CharacterId";
 
                         using (SqlCommand cmd = new SqlCommand(updateCharacterQuery, conn))
                         {
@@ -481,10 +609,10 @@ namespace DnD_Project
 
                         // Update Saving Throws Table
                         string updateSavingThrowsQuery = @"
-                UPDATE SavingThrows 
-                SET strength = @Strength, dexterity = @Dexterity, constitution = @Constitution, 
-                    intelligence = @Intelligence, wisdom = @Wisdom, charisma = @Charisma
-                WHERE character_id = @CharacterId";
+                        UPDATE SavingThrows 
+                        SET strength = @Strength, dexterity = @Dexterity, constitution = @Constitution, 
+                            intelligence = @Intelligence, wisdom = @Wisdom, charisma = @Charisma
+                        WHERE character_id = @CharacterId";
 
                         using (SqlCommand cmd = new SqlCommand(updateSavingThrowsQuery, conn))
                         {
@@ -501,13 +629,13 @@ namespace DnD_Project
 
                         // Update Skills Table
                         string updateSkillsQuery = @"
-                UPDATE Skills 
-                SET acrobatics = @Acrobatics, animal_handling = @AnimalHandling, arcana = @Arcana, deception = @Deception, 
-                    history = @History, insight = @Insight, intimidation = @Intimidation, investigation = @Investigation, 
-                    medicine = @Medicine, nature = @Nature, perception = @Perception, performance = @Performance, 
-                    persuasion = @Persuasion, religion = @Religion, sleight_of_hand = @SleightOfHand, 
-                    stealth = @Stealth, survival = @Survival
-                WHERE character_id = @CharacterId";
+                        UPDATE Skills 
+                        SET acrobatics = @Acrobatics, animal_handling = @AnimalHandling, arcana = @Arcana, deception = @Deception, 
+                            history = @History, insight = @Insight, intimidation = @Intimidation, investigation = @Investigation, 
+                            medicine = @Medicine, nature = @Nature, perception = @Perception, performance = @Performance, 
+                            persuasion = @Persuasion, religion = @Religion, sleight_of_hand = @SleightOfHand, 
+                            stealth = @Stealth, survival = @Survival
+                        WHERE character_id = @CharacterId";
 
                         using (SqlCommand cmd = new SqlCommand(updateSkillsQuery, conn))
                         {
@@ -533,6 +661,60 @@ namespace DnD_Project
                             cmd.ExecuteNonQuery();
                         }
 
+                        string checkAttackQuery = @"
+                SELECT COUNT(*) FROM AttacksAndSpellcasting WHERE character_id = @CharacterId;";
+
+                        int attackCount;
+                        using (SqlCommand checkCmd = new SqlCommand(checkAttackQuery, conn))
+                        {
+                            checkCmd.Parameters.AddWithValue("@CharacterId", characterid);
+                            attackCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                        }
+
+                        string[] names = { textBox39.Text, textBox42.Text, textBox45.Text };
+                        string[] bonuses = { textBox40.Text, textBox43.Text, textBox46.Text };
+                        string[] damageTypes = { textBox41.Text, textBox44.Text, textBox47.Text };
+
+                        for (int i = 0; i < names.Length; i++)
+                        {
+                            if (!string.IsNullOrWhiteSpace(names[i]))
+                            {
+                                if (i < attackCount) // Update existing record
+                                {
+                                    string updateAttackQuery = @"
+                            UPDATE AttacksAndSpellcasting 
+                            SET name = @Name, attack_bonus = @AttackBonus, damage_type = @DamageType
+                            WHERE character_id = @CharacterId AND attack_id = 
+                                (SELECT attack_id FROM AttacksAndSpellcasting WHERE character_id = @CharacterId ORDER BY attack_id OFFSET @Offset ROWS FETCH NEXT 1 ROWS ONLY);";
+
+                                    using (SqlCommand cmd = new SqlCommand(updateAttackQuery, conn))
+                                    {
+                                        cmd.Parameters.AddWithValue("@CharacterId", characterid);
+                                        cmd.Parameters.AddWithValue("@Name", names[i]);
+                                        cmd.Parameters.AddWithValue("@AttackBonus", bonuses[i]);
+                                        cmd.Parameters.AddWithValue("@DamageType", damageTypes[i]);
+                                        cmd.Parameters.AddWithValue("@Offset", i);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+                                else // Insert new attack record
+                                {
+                                    string insertAttackQuery = @"
+                            INSERT INTO AttacksAndSpellcasting (character_id, name, attack_bonus, damage_type)
+                            VALUES (@CharacterId, @Name, @AttackBonus, @DamageType);";
+
+                                    using (SqlCommand cmd = new SqlCommand(insertAttackQuery, conn))
+                                    {
+                                        cmd.Parameters.AddWithValue("@CharacterId", characterid);
+                                        cmd.Parameters.AddWithValue("@Name", names[i]);
+                                        cmd.Parameters.AddWithValue("@AttackBonus", bonuses[i]);
+                                        cmd.Parameters.AddWithValue("@DamageType", damageTypes[i]);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+                        }
+
                         MessageBox.Show("Character updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -541,13 +723,46 @@ namespace DnD_Project
                     }
                 }
             }
-            //Change it to edit from query
         }
-
-
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void deleteCharacter_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmDelete = MessageBox.Show(
+            "Are you sure you want to delete this character?",
+            "Confirm Delete",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning
+            );
+
+            if (confirmDelete == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string deleteQuery = "DELETE FROM Characters WHERE Character_ID = @characterId";
+
+                    using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn))
+                    {
+                        deleteCmd.Parameters.AddWithValue("@characterId", characterid);
+                        int rowsAffected = deleteCmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Character deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            button1_Click(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
 
         }
     }
